@@ -1,0 +1,108 @@
+﻿@page
+@model SGestionProductos.Pages.Reportes.IndexModel
+@{
+    ViewData["Title"] = "Reportes";
+    Layout = "_Layout";
+}
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Reportes</h4>
+
+                <h6 class="card-title">Reporte ventas</h6>
+                <div class="row">
+                    <div class="col-5">
+                        <label>Fecha inicio</label>
+                        <input type="date" class="form-control" id="txtInicio"/>
+                    </div>
+                    <div class="col-5">
+                        <label>Fecha fin</label>
+                        <input type="date" class="form-control" id="txtFin"/>
+                    </div>
+                    <div class="col-2">
+                        
+                        <button class="btn btn-primary mt-4" onclick="ConsultarRptVenta()">Consultar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="col-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad Vendida</th>
+                                    <th>Total de Venta</th>
+                                    <th>Ganancia</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DataVentas"></tbody>
+                        </table>
+                    </div>
+
+                <h6 class="card-title">Reporte stock</h6>
+
+                <div class="row">
+                    <div class="col-4">
+
+                        <button class="btn btn-primary mt-4" onclick="ConsultarRptStock()">Generar Reporte</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad Actual</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DataStock"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h6 class="card-title">Reporte mas vendidos</h6>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label>Fecha inicio</label>
+                        <input type="date" class="form-control" id="txtInicioV" />
+                    </div>
+                    <div class="col-3">
+                        <label>Fecha fin</label>
+                        <input type="date" class="form-control" id="txtFinV" />
+                    </div>
+                    <div class="col-3">
+                        <label>Cantidad</label>
+                        <input type="text" class="form-control" id="txtCantidad" />
+                    </div>
+                    <div class="col-2">
+
+                        <button class="btn btn-primary mt-4" onclick="ConsultarRptVendidos()">Consultar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad Vendida</th>
+                                    <th>Total de Venta</th>
+                                    <th>Ganancia</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DataVentasV"></tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/reportes.js"></script>

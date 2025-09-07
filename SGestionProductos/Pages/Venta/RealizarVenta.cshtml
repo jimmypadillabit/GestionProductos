@@ -1,0 +1,91 @@
+﻿@page
+@model SGestionProductos.Pages.Venta.RealizarVentaModel
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <h4 class="card-title">Total venta</h4>
+                <canvas id="transaction-history" class="transaction-chart chartjs-render-monitor" width="307" height="153" style="display: block; width: 307px; height: 153px;"></canvas>
+                <div class="w-100 mt-4">
+                    <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Producto</h6>
+                        <select class="form-control" id="cmbProducto" onchange="VerDetalle()"></select>
+                    </div>
+                </div>
+                <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                    <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1" id="infoNombre"></h6>
+                        <p class="text-muted mb-0" id="infoDes"></p>
+                    </div>
+                    <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0" id="infoPvp"></h6>
+                    </div>
+                </div>
+                <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                    <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Cantidad</h6>
+                        <input type="text" class="form-control" id="txtCantidad" />
+                    </div>
+                    <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-3 py-xl-1 mt-3">
+                        <button type="button" class="btn btn-inverse-primary btn-icon" onclick="AgregarDetalle()">
+                            <i class="mdi mdi-plus-box"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-between">
+                    <h4 class="card-title mb-1">Detalle</h4>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary btn-icon-text" onclick="PreguntaGuardar()">
+                            <i class="mdi mdi-file-check btn-icon-prepend"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="preview-list" id="dataDetail">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mGuardar" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitulo">Confirmacion</h5>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Desea guardar la venta?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-icon-text" data-dismiss="modal">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> Cancelar
+                </button>
+                <button type="button" class="btn btn-primary btn-icon-text" onclick="ConfirmarGuardar()">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/venta.js"></script>

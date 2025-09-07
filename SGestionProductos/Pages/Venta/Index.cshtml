@@ -1,0 +1,88 @@
+﻿@page
+@model SGestionProductos.Pages.Venta.IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "_Layout";
+}
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ventas</h4>
+                <div class="d-flex justify-content-end">
+                    <a type="button" class="btn btn-primary btn-icon-text" href="/Venta/RealizarVenta">
+                        <i class="mdi mdi-cart-plus btn-icon-prepend"></i> Vender
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th> Pr </th>
+                                <th> Fecha de venta </th>
+                                <th> Producto </th>
+                                <th> Cantidad </th>
+                                <th> Total </th>
+                                <th> Ac. </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-1">
+                                    <img src="../../assets/images/faces-clipart/pic-1.png" alt="image">
+                                </td>
+                                <td> Herman Beck </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td> $ 77.99 </td>
+                                <td> $ 77.99 </td>
+                                <td>
+
+                                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Acciones</button>
+                                            <div class="dropdown-menu" style="">
+                                                <a class="dropdown-item">Cancelar</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-1">
+                                    <img src="../../assets/images/faces-clipart/pic-2.png" alt="image">
+                                </td>
+                                <td> Messsy Adam </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td> $245.30 </td>
+                                <td> $ 77.99 </td>
+                                <td>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Acciones</button>
+                                        <div class="dropdown-menu" style="">
+                                            <a class="dropdown-item">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,170 @@
+﻿@page
+@model SGestionProductos.Pages.Proveedor.IndexModel
+
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "_Layout"; // apunta al layout en /Pages/Shared/_Layout.cshtml
+}
+
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proveedores</h4>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary btn-icon-text" data-toggle="modal" data-target="#mProveedor">
+                        <i class="mdi mdi-plus-box btn-icon-prepend"></i> Nuevo
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tblProveedor">
+                        <thead>
+                            <tr>
+                                <th> Pr </th>
+                                <th> Nombre </th>
+                                <th> Contacto </th>
+                                <th> Email </th>
+                                <th> Telefono </th>
+                                <th> Ac. </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblData">
+                            @* <tr>
+                            <td class="py-1">
+                            <img src="../../assets/images/faces-clipart/pic-1.png" alt="image">
+                            </td>
+                            <td> Herman Beck </td>
+                            <td>
+                            <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            </td>
+                            <td> $ 77.99 </td>
+                            <td> May 15, 2015 </td>
+                            <td>
+
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Acciones</button>
+                            <div class="dropdown-menu" style="">
+                            <a class="dropdown-item">Editar</a>
+                            <a class="dropdown-item">Eliminar</a>
+                            </div>
+                            </div>
+
+                            </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="py-1">
+                            <img src="../../assets/images/faces-clipart/pic-2.png" alt="image">
+                            </td>
+                            <td> Messsy Adam </td>
+                            <td>
+                            <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            </td>
+                            <td> $245.30 </td>
+                            <td> July 1, 2015 </td>
+                            <td>
+
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Acciones</button>
+                            <div class="dropdown-menu" style="">
+                            <a class="dropdown-item">Editar</a>
+                            <a class="dropdown-item">Eliminar</a>
+                            </div>
+                            </div>
+                            </td>
+                            </tr> *@
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mProveedor" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitulo">Datos Proveedor</h5>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample">
+                            <input type="hidden" id="txtId"/>
+                            <div class="form-group row">
+                                <label for="txtNombre" class="col-sm-3 col-form-label">Nombre</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtContacto" class="col-sm-3 col-form-label">Contacto</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="txtContacto" placeholder="Contacto">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtEmail" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="txtEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtTelefono" class="col-sm-3 col-form-label">Telefono</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono">
+                                </div>
+                            </div>
+ 
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-icon-text" data-dismiss="modal">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> Cancelar
+                </button>
+                <button type="button" class="btn btn-primary btn-icon-text" onclick="ValidarFormulario()">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitulo">Desea eliminar este registro?</h5>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center" id="infoData"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-icon-text" data-dismiss="modal">
+                    <i class="mdi mdi-reload btn-icon-prepend"></i> Cancelar
+                </button>
+                <button id="btnEliminar" type="button" class="btn btn-primary btn-icon-text" onclick="Eliminar(this)">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/proveedor.js"></script>
